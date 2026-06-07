@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #030712;
+    color: #F1F5F9;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow: hidden;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    backdrop-filter: blur(12px);
+    background-color: rgba(11, 17, 23, 0.8);
+    border: 1px solid #1F2937;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B1117;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1F2937;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38BDF8;
+}
+
+/* Table styles */
+.incident-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.incident-table th {
+  text-align: left;
+  padding: 12px;
+  background-color: rgba(56, 189, 248, 0.1);
+  color: #38BDF8;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #1F2937;
+}
+
+.incident-table td {
+  padding: 12px;
+  border-bottom: 1px solid #1F2937;
+  font-size: 13px;
+}
+
+.incident-table tr:hover {
+  background-color: rgba(56, 189, 248, 0.05);
+}
+
+/* Severity badges */
+.severity-critical {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #EF4444;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.severity-high {
+  background-color: rgba(249, 115, 22, 0.2);
+  color: #F97316;
+  border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.severity-medium {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.severity-low {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #10B981;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
