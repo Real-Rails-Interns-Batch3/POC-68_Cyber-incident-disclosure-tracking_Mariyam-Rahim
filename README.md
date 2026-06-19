@@ -88,18 +88,38 @@ NEXT_PUBLIC_API_URL=http://localhost:8000
 | company | string | Filter by company name |
 | incident_type | string | Filter by incident type |
 
-## Data
+## Data Sources
 
-500+ synthetic incidents (2020-present) across 6 sectors, 48 companies, 12 incident types.
-## Data Generation
+### Current Data (Synthetic)
+The dashboard currently uses **synthetic data** for demonstration purposes. This allows you to:
+- Test the dashboard immediately without API keys
+- See realistic incident patterns
+- Understand the full feature set
 
-The project uses synthetic data for demonstration purposes.
+### Real Data Sources (Optional)
 
-### Generate fresh data:
-```bash
-cd backend
-python data_generator.py
-```
+#### SEC EDGAR
+The SEC EDGAR database provides real corporate filings including 8-K, 10-K, and 10-Q reports that disclose cyber incidents.
+
+**To enable SEC EDGAR:**
+1. Get an API key from https://www.sec.gov/edgar/searchedgar/access
+2. Add to `.env.local`:
+   SEC_EDGAR_API_KEY=your_api_key_here
+
+#### GDELT
+The GDELT Project monitors global news media for cyber incident mentions.
+
+**To enable GDELT:**
+1. Access GDELT API at https://www.gdeltproject.org/data.html
+2. Add to `.env.local`:GDELT_API_KEY=your_api_key_here
+
+
+### Switching to Real Data
+
+1. Uncomment the API key lines in `.env.example`
+2. Rename `.env.example` to `.env.local`
+3. Add your actual API keys
+4. Modify `backend/data_generator.py` to fetch from APIs instead of generating synthetic data
 
 ## Troubleshooting
 
