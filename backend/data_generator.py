@@ -69,10 +69,18 @@ def generate_incident_data():
         else:
             affected_records = random.randint(100, 100000)
         
-        # Filing link (synthetic SEC EDGAR URL)
+        # Generate realistic SEC EDGAR links (synthetic but properly formatted)
+        cik = random.randint(100000, 999999)  # CIK number
+        accession = random.randint(1000000000, 9999999999)  # Accession number
         filing_type = random.choice(filing_types)
-        filing_link = f"https://www.sec.gov/Archives/edgar/data/{random.randint(100000, 999999)}/{random.randint(1000000000, 9999999999)}/{filing_type.lower()}_{i}.htm"
-        
+        year = random.randint(2018, 2024)
+
+        # Create a realistic SEC URL format
+        filing_link = f"https://www.sec.gov/Archives/edgar/data/{cik}/{accession}/{filing_type.lower()}_{year}.htm"
+
+        # Add a note that this is synthetic in the description
+        description = f"[SYNTHETIC DATA] {descriptions.get(incident_types[i % len(incident_types)], f'Security incident affecting {company}.')}"
+
         # Incident title
         title = f"{company} Reports {incident_types[i % len(incident_types)]}"
         

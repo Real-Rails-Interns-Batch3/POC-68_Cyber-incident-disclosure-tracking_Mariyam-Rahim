@@ -63,16 +63,15 @@ export function IncidentTable({ incidents, onSelectIncident }: IncidentTableProp
               <td className="p-3 text-sm text-cyber-tx2">{formatDate(incident.disclosure_date)}</td>
               <td className="p-3 text-sm text-cyber-tx2">{formatRecords(incident.affected_records)}</td>
               <td className="p-3">
-                <a 
-                  href={incident.filing_link}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  onClick={() => {
+                    alert(`SEC Filing: ${incident.filing_type}\n\nThis is a synthetic demo link.\nTo view real filings, add SEC EDGAR API key.`);
+                  }}
                   className="text-cyber-cyan hover:text-cyber-cyan/80 transition flex items-center gap-1 text-xs"
-                  onClick={(e) => e.stopPropagation()}
                 >
                   {incident.filing_type}
                   <ExternalLink className="w-3 h-3" />
-                </a>
+                </button>
               </td>
               <td className="p-3">
                 <ChevronRight className="w-4 h-4 text-cyber-tx3" />
